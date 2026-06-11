@@ -1,0 +1,10 @@
+# Environnement
+.env
+
+# Dépendances
+node_modules/
+
+# Dossiers de build (générés automatiquement)
+dist/
+dist-ssr/
+*.local
