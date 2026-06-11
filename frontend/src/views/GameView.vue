@@ -117,6 +117,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -215,6 +216,275 @@ export default {
 }
 </script>
 
+
+
 <style scoped>
-/* (Ton style reste inchangé) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;800&family=Plus+Jakarta+Sans:wght@400;600;800&family=Poppins:wght@300;600&display=swap');
+
+/* FOND CAPTIVANT EN DUNE DE SABLE CHAUDE */
+.songo-epic-sand-container {
+  background: #fdf2e9 url('http://googleusercontent.com/image_collection/image_retrieval/7159787163013233157') repeat;
+  background-blend-mode: multiply;
+  background-image: radial-gradient(#fff 20%, #eadccb 100%);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* INTERFACE SUPÉRIEURE - GLASSMORPHISME LUXUEUX */
+.glass-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 15px 35px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255,255,255,0.2);
+  box-sizing: border-box;
+}
+
+/* SIGNATURE MÉTALLISÉE CHROMÉE */
+.designer-badge {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+  border: 1px solid #d4af37;
+  padding: 10px 25px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+.designer-badge .metal-shine {
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: skewX(-25deg);
+  animation: shine 4s infinite ease-in-out;
+}
+.designer-badge .label { font-size: 9px; color: #a48630; letter-spacing: 2px; font-weight: 800; display: block; margin-bottom: 2px; }
+.designer-badge .name { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px; color: #1a0f0a; text-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+
+/* CONTROLES ET STATUT CENTRE */
+.status-center { text-align: center; }
+.tour-indicator { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 6px; }
+.tour-indicator h2 { margin: 0; font-size: 1.15rem; color: #3e2723; font-weight: 400; }
+.current-player-text { color: #bf9b30; font-weight: 800; text-shadow: 0 0 10px rgba(211, 175, 55, 0.2); }
+
+.pulse-glow-gold {
+  width: 10px;
+  height: 10px;
+  background-color: #f1c40f;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #f1c40f;
+  animation: pulse-ring 1.5s infinite;
+}
+
+.btn-abandon-text {
+  color: #c0392b;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* SCOREBOARD AVEC EFFET TROU DANS LE VERRE */
+.scoreboard-hollow { display: flex; gap: 18px; }
+.score-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 6px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.score-tag.turn-active { border-color: #d4af37; background: rgba(212,175,55,0.08); box-shadow: 0 0 15px rgba(212,175,55,0.1); }
+.dot-led { width: 9px; height: 9px; border-radius: 50%; }
+.dot-led.red { background: #e74c3c; box-shadow: 0 0 8px #e74c3c; }
+.dot-led.green { background: #2ecc71; box-shadow: 0 0 8px #2ecc71; }
+.p-info { display: flex; flex-direction: column; }
+.p-name { font-weight: 600; font-size: 0.9rem; color: #1a0f0a; }
+.p-score { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; color: #1a0f0a; font-weight: 800; margin-top: 2px; }
+
+/* LE PLATEAU HYPER-RÉALISTE EN BOIS CLAIR 3D SUR SABLE */
+.perspective-board-wrapper {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 25px 0;
+}
+
+.songo-wood-board-3d {
+  background: #eadccb;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, rgba(216,208,191,0.9) 100%),
+    url('http://googleusercontent.com/image_collection/image_retrieval/7717830303867664326') repeat;
+  padding: 40px 30px;
+  border-radius: 40px;
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.1),
+    inset 0 4px 8px rgba(255, 255, 255, 0.2),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.15);
+  border: 10px solid #c9bcae;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+  transform: rotateX(10deg);
+  transform-style: preserve-3d;
+}
+
+/* ZONE TECHNIQUE CENTRALE (14 TROUS) */
+.pits-grid-game {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+.laser-carved-divider {
+  position: absolute;
+  top: 50%; left: 0; right: 0; height: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(255,255,255,0.05);
+  transform: translateY(-50%);
+}
+
+.row-pits { display: flex; justify-content: space-between; gap: 16px; }
+.pit-interactive-box { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.pit-id-text { font-family: 'Poppins', sans-serif; font-size: 0.75rem; font-weight: 600; color: #a48630; }
+
+/* LES CAVITÉS SPHÉRIQUES PROFONDES & CLAIRES */
+.pit-spherical-cavity {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #eadccb;
+  background-image: radial-gradient(rgba(255,255,255,0.2) 0%, rgba(18,7,4,0.1) 100%);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 
+    inset 8px 12px 24px rgba(0, 0, 0, 0.2),
+    1px 2px 2px rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cavity-specular {
+  position: absolute;
+  top: 10%; left: 15%; width: 30%; height: 15%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+  border-radius: 50%;
+}
+
+/* EFFET INTERACTIF QUAND JOUABLE */
+.pit-interactive-box.clickable-playable .pit-spherical-cavity {
+  cursor: pointer;
+  border: 1.5px solid rgba(212,175,55,0.4);
+}
+.pit-interactive-box.clickable-playable .pit-spherical-cavity:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: #d4af37;
+  box-shadow: inset 4px 6px 12px rgba(0,0,0,0.1), 0 10px 25px rgba(212, 175, 55, 0.15);
+}
+
+.seeds-cluster-wrapper { position: absolute; width: 32px; height: 32px; }
+
+/* LES MAGASINS ÉPIQUES ULTRA-CREUSÉS & CLAIRS */
+.epic-store-store {
+  width: 95px;
+  height: 270px;
+  background: #eadccb;
+  background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, rgba(18,7,4,0.1) 100%);
+  border: 3px solid #c9bcae;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 6px;
+  box-shadow: inset 0 5px 15px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+}
+
+.inner-hollow-cavity {
+  flex: 1;
+  background: rgba(18,7,4,0.05);
+  border-radius: 40px;
+  position: relative;
+  box-shadow: inset 6px 12px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.store-soft-glow {
+  position: absolute;
+  bottom: 0; width: 100%; height: 40%;
+  background: radial-gradient(circle at 50% 100%, rgba(212,175,55,0.08), transparent);
+}
+
+.store-label-plaque { text-align: center; margin-top: 10px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.store-label-plaque .badge { background: #d4af37; color: #fff; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 800; padding: 2px 10px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.store-label-plaque .label { font-size: 0.65rem; font-weight: 800; color: #a48630; letter-spacing: 1px; }
+
+/* GRAINES EN MÉTAL PRÉCIEUX ET POLI AVEC REFLETS LUMINEUX */
+.metallic-gold-seed {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #e8bc3c 40%, #7e5c0d 100%);
+  border-radius: 50%;
+  box-shadow: 2px 3px 5px rgba(0,0,0,0.5), inset -1px -1px 2px rgba(0,0,0,0.2);
+}
+
+/* LE BOUTON ÉPIQUE DE RÉINITIALISATION SUR LE SABLE */
+.action-restart-wrapper { margin: 25px 0; }
+.btn-epic-restart {
+  background: rgba(234, 220, 203, 0.8);
+  border: 1px solid rgba(192, 169, 143, 0.6);
+  border-radius: 50px;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+.btn-epic-restart:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); background: #fdf2e9; }
+.restart-icon { font-size: 1.1rem; }
+.restart-text { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1rem; color: #bf9b30; }
+
+/* TERMINAL DE CONTRÔLE ET HUD DU BAS (GLASS) */
+.bottom-panel { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 30px; }
+.hud-log-section h3 { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; margin: 0 0 12px 0; color: #bf9b30; letter-spacing: 1px; text-transform: uppercase; }
+.terminal-list-log { height: 95px; overflow-y: auto; font-family: 'monospace'; font-size: 0.78rem; color: #1a0f0a; }
+.terminal-list-log p { margin: 5px 0; padding-bottom: 4px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.neon-gold-text { color: #d35400; font-weight: bold; text-shadow: 0 0 8px rgba(243, 156, 18, 0.1); }
+
+.action-alert-msg { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #1a0f0a; font-weight: 700; margin: 10px 0 0 0; text-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+.empty-list-msg { font-style: italic; color: rgba(18,7,4,0.3); font-size: 0.8rem; margin-top: 10px; }
+
+/* ANIMATIONS EFFETS GLOBAUX */
+@keyframes shine {
+  0% { left: -100%; }
+  30% { left: 150%; }
+  100% { left: 150%; }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.5); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(243, 156, 18, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(243, 156, 18, 0); }
+}
 </style>

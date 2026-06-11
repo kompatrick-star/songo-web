@@ -1,0 +1,30 @@
+.songo-wood-board-3d { display: flex !important; flex-direction: row !important; justify-content: center !important; }
+.pits-grid-game { display: flex !important; flex-direction: column !important; align-items: center !important; }
+.row-pits { display: grid !important; grid-template-columns: repeat(7, 1fr) !important; gap: 10px !important; }
+/* 1. On force le conteneur global à prendre toute la largeur */
+.songo-epic-sand-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100vw !important; /* Largeur de la fenêtre */
+  min-height: 100vh !important;
+}
+
+/* 2. On force le wrapper du plateau à s'étaler */
+.perspective-board-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 90% !important; /* Occupe 90% de l'écran */
+  margin: 20px auto !important;
+}
+
+/* 3. On donne de la largeur aux rangées */
+.row-pits {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 15px !important;
+  width: 100% !important;
+  max-width: 800px !important; /* Assure une taille lisible */
+}
